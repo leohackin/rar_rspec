@@ -7,7 +7,8 @@ class MembersController < ApplicationController
 
   def winner
     w = Member.pick_a_winner
-    w.update_attribute(:win => 1)
+    w.win = 1
+    w.save
 
     respond_to do |format|
       format.json { render :json => w }
