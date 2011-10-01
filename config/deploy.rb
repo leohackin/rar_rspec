@@ -42,7 +42,7 @@ role :db,  "rockandrails.almirmendes.com", :primary => true
 #
 # Triggers Tasks
 #
-after 'deploy:symlink', 'deploy:rvmrc', 'deploy:database', 'deploy:migrate', 'deploy:restart'
+after 'deploy:symlink', 'deploy:rvmrc', 'deploy:database', 'deploy:migrate'
 
 # Custom tasks and overrides
 namespace :deploy do
