@@ -42,10 +42,16 @@ role :db,  "rockandrails.almirmendes.com", :primary => true
 #
 # Triggers Tasks
 #
+before 'deploy:symlink', 'deploy:assets'
 after 'deploy:symlink', 'deploy:rvmrc', 'deploy:database', 'deploy:migrate', 'deploy:restart'
 
 # Custom tasks and overrides
 namespace :deploy do
+  desc "Compile asets"
+  task :assets do
+    run "cd #{release_path}; RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
+  end
+
   desc "Copy pre configured database.yml"
   task :database, :roles => :app do
     run "cp #{deploy_to}/shared/database.yml #{current_path}/config/"
