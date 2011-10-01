@@ -10,7 +10,7 @@
   //<![CDATA[
   function raffle() {
     $.get('<%= winner_path %>', function(data){
-        $(".winner").html(data.name )
+        $(".winner").html(data.name + "<br />" data.email )
         $(".winner").shuffleLetters();
     })
   }
