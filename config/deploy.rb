@@ -46,6 +46,11 @@ after 'deploy:symlink', 'deploy:rvmrc', 'deploy:database', 'deploy:migrate', 'de
 
 # Custom tasks and overrides
 namespace :deploy do
+  desc "Restart"
+  task :restart, :roles => :app do
+    run "cd #{current_path} && touch tmp/restart.txt"
+  end
+
   desc "Copy pre configured database.yml"
   task :database, :roles => :app do
     run "cp #{deploy_to}/shared/database.yml #{current_path}/config/"
