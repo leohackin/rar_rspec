@@ -1,0 +1,19 @@
+<%= image_tag "logo_rar.png", :class => "logo_rar" %>
+<%= link_to_function "Realizar Sorteio", "raffle()" %>
+<hr />
+<div class="winner">
+</div>
+
+<% content_for :javascript do %>
+  <%= javascript_include_tag "jquery.shuffleLetters.js", "script.js" %>
+  <script type="text/javascript" language="javascript" charset="utf-8">
+  //<![CDATA[
+  function raffle() {
+    $.get('<%= winner_path %>', function(data){
+        $(".winner").html(data.name )
+        $(".winner").shuffleLetters();
+    })
+  }
+  //]]>
+  </script>
+<% end %>
