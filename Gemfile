@@ -17,7 +17,7 @@ group :assets do
 end
 
 group :production do
-  gem 'mysql2', "0.2.7"
+  gem 'mysql2', "0.3.7"
 end
 
 gem 'jquery-rails'
