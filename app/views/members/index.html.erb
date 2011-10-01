@@ -3,6 +3,9 @@
 <hr />
 <div class="winner">
 </div>
+<p>&nbsp;</p>
+<div class="winner_email">
+</div>
 
 <% content_for :javascript do %>
   <%= javascript_include_tag "jquery.shuffleLetters.js", "script.js" %>
@@ -10,8 +13,10 @@
   //<![CDATA[
   function raffle() {
     $.get('<%= winner_path %>', function(data){
-        $(".winner").html(data.name + "<br />" data.email )
+        $(".winner").html(data.name)
+        $(".winner_email").html(data.email);
         $(".winner").shuffleLetters();
+        $(".winner_email").shuffleLetters();
     })
   }
   //]]>

@@ -6,7 +6,7 @@
  *= require_tree . 
 */
 
-.winner {
+.winner, .winner_email {
   margin: auto;
   text-align: center;
   font-size: 28pt;
